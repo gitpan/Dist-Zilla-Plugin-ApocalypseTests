@@ -1,0 +1,30 @@
+---
+abstract: 'Creates the Test::Apocalypse testfile for Dist::Zilla'
+author:
+  - 'Apocalypse <APOCAL@cpan.org>'
+configure_requires:
+  Module::Build: 0.36
+dynamic_config: 0
+generated_by: 'Module::Build version 0.3607'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Dist-Zilla-Plugin-ApocalypseTests
+provides:
+  Dist::Zilla::Plugin::ApocalypseTests:
+    file: lib/Dist/Zilla/Plugin/ApocalypseTests.pm
+    version: 0.01
+requires:
+  Dist::Zilla::Plugin::InlineFiles: 2.101170
+  Dist::Zilla::Role::FileMunger: 2.101170
+  Moose: 1.01
+  Test::Apocalypse: 0.10
+  Test::More: 0.94
+  perl: 5.008
+resources:
+  bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dist-Zilla-Plugin-ApocalypseTests
+  homepage: http://search.cpan.org/dist/Dist-Zilla-Plugin-ApocalypseTests
+  license: http://dev.perl.org/licenses/
+  repository: http://github.com/apocalypse/perl-dist-zilla-plugin-apocalypsetests
+version: 0.01
