@@ -2,6 +2,9 @@ NAME
     Dist::Zilla::Plugin::ApocalypseTests - Creates the Test::Apocalypse
     testfile for Dist::Zilla
 
+VERSION
+      This document describes v1.000 of Dist::Zilla::Plugin::ApocalypseTests - released December 13, 2010 as part of Dist-Zilla-Plugin-ApocalypseTests.
+
 DESCRIPTION
     This is an extension of Dist::Zilla::Plugin::InlineFiles, providing the
     following files:
@@ -14,32 +17,45 @@ DESCRIPTION
                 # In your dist.ini:
                 [ApocalypseTests]
 
-    This plugin accepts the following options:
+ATTRIBUTES
+  allow
+    This option will be passed directly to Test::Apocalypse to control which
+    sub-tests you want to run.
 
-    *   allow
+    The default is nothing.
 
-        This option will be passed directly to Test::Apocalypse to control
-        which sub-tests you want to run.
+  deny
+    This option will be passed directly to Test::Apocalypse to control which
+    sub-tests you want to run.
 
-    *   deny
-
-        This option will be passed directly to Test::Apocalypse to control
-        which sub-tests you want to run.
+    The default is nothing.
 
 SEE ALSO
-    Dist::Zilla
+    Please see those modules/websites for more information related to this
+    module.
 
-    Test::Apocalypse
+    *   Dist::Zilla
+
+    *   Test::Apocalypse
 
 SUPPORT
     You can find documentation for this module with the perldoc command.
 
-            perldoc Dist::Zilla::Plugin::ApocalypseTests
+      perldoc Dist::Zilla::Plugin::ApocalypseTests
 
   Websites
+    The following websites have more information about this module, and may
+    be of help to you. As always, in addition to those websites please use
+    your favorite search engine to discover more resources.
+
     *   Search CPAN
 
         <http://search.cpan.org/dist/Dist-Zilla-Plugin-ApocalypseTests>
+
+    *   RT: CPAN's Bug Tracker
+
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dist-Zilla-Plugin-Apocalyp
+        seTests>
 
     *   AnnoCPAN: Annotated CPAN documentation
 
@@ -52,11 +68,6 @@ SUPPORT
     *   CPAN Forum
 
         <http://cpanforum.com/dist/Dist-Zilla-Plugin-ApocalypseTests>
-
-    *   RT: CPAN's Request Tracker
-
-        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dist-Zilla-Plugin-Apocalyp
-        seTests>
 
     *   CPANTS Kwalitee
 
@@ -73,31 +84,55 @@ SUPPORT
         <http://matrix.cpantesters.org/?dist=Dist-Zilla-Plugin-ApocalypseTes
         ts>
 
-    *   Git Source Code Repository
+  Internet Relay Chat
+    You can get live help by using IRC ( Internet Relay Chat ). If you don't
+    know what IRC is, please read this excellent guide:
+    <http://en.wikipedia.org/wiki/Internet_Relay_Chat>. Please be courteous
+    and patient when talking to us, as we might be busy or sleeping! You can
+    join those networks/channels and get help:
 
-        <http://github.com/apocalypse/perl-dist-zilla-plugin-apocalypsetests
-        >
+    *   irc.perl.org
 
-  Bugs
-    Please report any bugs or feature requests to
+        You can connect to the server at 'irc.perl.org' and join this
+        channel: #perl-help then talk to this person for help: Apocalypse.
+
+    *   irc.freenode.net
+
+        You can connect to the server at 'irc.freenode.net' and join this
+        channel: #perl then talk to this person for help: Apocal.
+
+    *   irc.efnet.org
+
+        You can connect to the server at 'irc.efnet.org' and join this
+        channel: #perl then talk to this person for help: Ap0cal.
+
+  Bugs / Feature Requests
+    Please report any bugs or feature requests by email to
     "bug-dist-zilla-plugin-apocalypsetests at rt.cpan.org", or through the
     web interface at
     <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Dist-Zilla-Plugin-Apocal
     ypseTests>. I will be notified, and then you'll automatically be
     notified of progress on your bug as I make changes.
 
-AUTHOR
-    Apocalypse <apocal@cpan.org>
+  Source Code
+    The code is open to the world, and available for you to hack on. Please
+    feel free to browse it and play with it, or whatever. If you want to
+    contribute patches, please send me a diff or prod me to pull from your
+    repository :)
 
-    Props goes out to JQUELIN for writing the
-    Dist::Zilla::Plugin::CompileTests which was the base for this module.
+    <http://github.com/apocalypse/perl-dist-zilla-plugin-apocalypsetests>
+
+      git clone git://github.com/apocalypse/perl-dist-zilla-plugin-apocalypsetests.git
+
+AUTHOR
+    Apocalypse <APOCAL@cpan.org>
 
 COPYRIGHT AND LICENSE
-    Copyright 2010 by Apocalypse
+    This software is copyright (c) 2010 by Apocalypse.
 
-    This library is free software; you can redistribute it and/or modify it
-    under the same terms as Perl itself.
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 
     The full text of the license can be found in the LICENSE file included
-    with this module.
+    with this distribution.
 
