@@ -29,7 +29,7 @@ my %WriteMakefileArgs = (
     'Dist::Zilla::Role::FileMunger' => '2.101170',
     'Moose' => '1.03'
   },
-  'VERSION' => '1.000',
+  'VERSION' => '1.001',
   'test' => {
     'TESTS' => 't/*.t'
   }

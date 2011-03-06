@@ -1,7 +1,7 @@
 #
 # This file is part of Dist-Zilla-Plugin-ApocalypseTests
 #
-# This software is copyright (c) 2010 by Apocalypse.
+# This software is copyright (c) 2011 by Apocalypse.
 #
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
@@ -9,7 +9,7 @@
 use strict; use warnings;
 package Dist::Zilla::Plugin::ApocalypseTests;
 BEGIN {
-  $Dist::Zilla::Plugin::ApocalypseTests::VERSION = '1.000';
+  $Dist::Zilla::Plugin::ApocalypseTests::VERSION = '1.001';
 }
 BEGIN {
   $Dist::Zilla::Plugin::ApocalypseTests::AUTHORITY = 'cpan:APOCAL';
@@ -21,6 +21,11 @@ use Moose 1.03;
 
 extends 'Dist::Zilla::Plugin::InlineFiles' => { -version => '2.101170' };
 with 'Dist::Zilla::Role::FileMunger' => { -version => '2.101170' };
+
+# TODO how do I fix this in pod-weaver? I think it's the __DATA__ section that screws it up?
+# Perl::Critic found these violations in "blib/lib/Dist/Zilla/Plugin/ApocalypseTests.pm":
+# [Documentation::RequirePodAtEnd] POD before __END__ at line 69, column 1.  (Severity: 1)
+## no critic ( RequirePodAtEnd )
 
 
 has allow => (
@@ -80,7 +85,7 @@ Dist::Zilla::Plugin::ApocalypseTests - Creates the Test::Apocalypse testfile for
 
 =head1 VERSION
 
-  This document describes v1.000 of Dist::Zilla::Plugin::ApocalypseTests - released December 13, 2010 as part of Dist-Zilla-Plugin-ApocalypseTests.
+  This document describes v1.001 of Dist::Zilla::Plugin::ApocalypseTests - released March 05, 2011 as part of Dist-Zilla-Plugin-ApocalypseTests.
 
 =head1 DESCRIPTION
 
@@ -120,17 +125,19 @@ Please see those modules/websites for more information related to this module.
 
 =item *
 
-L<Dist::Zilla>
+L<Dist::Zilla|Dist::Zilla>
 
 =item *
 
-L<Test::Apocalypse>
+L<Test::Apocalypse|Test::Apocalypse>
 
 =back
 
-=for :stopwords CPAN AnnoCPAN RT CPANTS Kwalitee diff IRC
+=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders
 
 =head1 SUPPORT
+
+=head2 Perldoc
 
 You can find documentation for this module with the perldoc command.
 
@@ -193,6 +200,10 @@ L<http://matrix.cpantesters.org/?dist=Dist-Zilla-Plugin-ApocalypseTests>
 
 =back
 
+=head2 Email
+
+You can email the author of this module at C<APOCAL at cpan.org> asking for help with any problems you have.
+
 =head2 Internet Relay Chat
 
 You can get live help by using IRC ( Internet Relay Chat ). If you don't know what IRC is,
@@ -225,8 +236,8 @@ You can connect to the server at 'irc.efnet.org' and join this channel: #perl th
 =head2 Bugs / Feature Requests
 
 Please report any bugs or feature requests by email to C<bug-dist-zilla-plugin-apocalypsetests at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Dist-Zilla-Plugin-ApocalypseTests>.  I will be
-notified, and then you'll automatically be notified of progress on your bug as I make changes.
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Dist-Zilla-Plugin-ApocalypseTests>. You will be automatically notified of any
+progress on the request by the system.
 
 =head2 Source Code
 
@@ -244,7 +255,7 @@ Apocalypse <APOCAL@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Apocalypse.
+This software is copyright (c) 2011 by Apocalypse.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
@@ -260,7 +271,7 @@ ___[ t/apocalypse.t ]___
 use strict; use warnings;
 
 use Test::More;
-eval "use Test::Apocalypse 0.10";
+eval "use Test::Apocalypse 1.000";
 if ( $@ ) {
 	plan skip_all => 'Test::Apocalypse required for validating the distribution';
 } else {
