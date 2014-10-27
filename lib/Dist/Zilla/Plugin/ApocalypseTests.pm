@@ -1,19 +1,16 @@
 #
 # This file is part of Dist-Zilla-Plugin-ApocalypseTests
 #
-# This software is copyright (c) 2011 by Apocalypse.
+# This software is copyright (c) 2014 by Apocalypse.
 #
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
 #
 use strict; use warnings;
 package Dist::Zilla::Plugin::ApocalypseTests;
-BEGIN {
-  $Dist::Zilla::Plugin::ApocalypseTests::VERSION = '1.001';
-}
-BEGIN {
-  $Dist::Zilla::Plugin::ApocalypseTests::AUTHORITY = 'cpan:APOCAL';
-}
+# git description: release-1.001-2-g2b50bf3
+$Dist::Zilla::Plugin::ApocalypseTests::VERSION = '1.002';
+our $AUTHORITY = 'cpan:APOCAL';
 
 # ABSTRACT: Creates the Test::Apocalypse testfile for Dist::Zilla
 
@@ -27,6 +24,13 @@ with 'Dist::Zilla::Role::FileMunger' => { -version => '2.101170' };
 # [Documentation::RequirePodAtEnd] POD before __END__ at line 69, column 1.  (Severity: 1)
 ## no critic ( RequirePodAtEnd )
 
+#pod =attr allow
+#pod
+#pod This option will be passed directly to L<Test::Apocalypse> to control which sub-tests you want to run.
+#pod
+#pod The default is nothing.
+#pod
+#pod =cut
 
 has allow => (
 	is => 'ro',
@@ -34,6 +38,13 @@ has allow => (
 	predicate => '_has_allow',
 );
 
+#pod =attr deny
+#pod
+#pod This option will be passed directly to L<Test::Apocalypse> to control which sub-tests you want to run.
+#pod
+#pod The default is nothing.
+#pod
+#pod =cut
 
 has deny => (
 	is => 'ro',
@@ -70,14 +81,42 @@ no Moose;
 __PACKAGE__->meta->make_immutable;
 1;
 
-
-
+#pod =pod
+#pod
+#pod =for Pod::Coverage munge_file
+#pod
+#pod =for stopwords dist
+#pod
+#pod =head1 DESCRIPTION
+#pod
+#pod This is an extension of L<Dist::Zilla::Plugin::InlineFiles>, providing
+#pod the following files:
+#pod
+#pod =over 4
+#pod
+#pod =item * t/apocalypse.t - Runs the dist through Test::Apocalypse
+#pod
+#pod For more information on what the test does, please look at L<Test::Apocalypse>.
+#pod
+#pod 	# In your dist.ini:
+#pod 	[ApocalypseTests]
+#pod
+#pod =back
+#pod
+#pod =head1 SEE ALSO
+#pod Dist::Zilla
+#pod Test::Apocalypse
+#pod
+#pod =cut
 
 =pod
 
-=for Pod::Coverage munge_file
+=encoding UTF-8
 
-=for stopwords dist
+=for :stopwords Apocalypse cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee
+diff irc mailto metadata placeholders metacpan dist
+
+=for Pod::Coverage munge_file
 
 =head1 NAME
 
@@ -85,7 +124,7 @@ Dist::Zilla::Plugin::ApocalypseTests - Creates the Test::Apocalypse testfile for
 
 =head1 VERSION
 
-  This document describes v1.001 of Dist::Zilla::Plugin::ApocalypseTests - released March 05, 2011 as part of Dist-Zilla-Plugin-ApocalypseTests.
+  This document describes v1.002 of Dist::Zilla::Plugin::ApocalypseTests - released October 27, 2014 as part of Dist-Zilla-Plugin-ApocalypseTests.
 
 =head1 DESCRIPTION
 
@@ -133,8 +172,6 @@ L<Test::Apocalypse|Test::Apocalypse>
 
 =back
 
-=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders
-
 =head1 SUPPORT
 
 =head2 Perldoc
@@ -152,7 +189,17 @@ in addition to those websites please use your favorite search engine to discover
 
 =item *
 
+MetaCPAN
+
+A modern, open-source CPAN search engine, useful to view POD in HTML format.
+
+L<http://metacpan.org/release/Dist-Zilla-Plugin-ApocalypseTests>
+
+=item *
+
 Search CPAN
+
+The default CPAN search engine, useful to view POD in HTML format.
 
 L<http://search.cpan.org/dist/Dist-Zilla-Plugin-ApocalypseTests>
 
@@ -160,11 +207,15 @@ L<http://search.cpan.org/dist/Dist-Zilla-Plugin-ApocalypseTests>
 
 RT: CPAN's Bug Tracker
 
+The RT ( Request Tracker ) website is the default bug/issue tracking system for CPAN.
+
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dist-Zilla-Plugin-ApocalypseTests>
 
 =item *
 
-AnnoCPAN: Annotated CPAN documentation
+AnnoCPAN
+
+The AnnoCPAN is a website that allows community annotations of Perl module documentation.
 
 L<http://annocpan.org/dist/Dist-Zilla-Plugin-ApocalypseTests>
 
@@ -172,31 +223,49 @@ L<http://annocpan.org/dist/Dist-Zilla-Plugin-ApocalypseTests>
 
 CPAN Ratings
 
+The CPAN Ratings is a website that allows community ratings and reviews of Perl modules.
+
 L<http://cpanratings.perl.org/d/Dist-Zilla-Plugin-ApocalypseTests>
 
 =item *
 
 CPAN Forum
 
+The CPAN Forum is a web forum for discussing Perl modules.
+
 L<http://cpanforum.com/dist/Dist-Zilla-Plugin-ApocalypseTests>
 
 =item *
 
-CPANTS Kwalitee
+CPANTS
 
-L<http://cpants.perl.org/dist/overview/Dist-Zilla-Plugin-ApocalypseTests>
+The CPANTS is a website that analyzes the Kwalitee ( code metrics ) of a distribution.
+
+L<http://cpants.cpanauthors.org/dist/overview/Dist-Zilla-Plugin-ApocalypseTests>
 
 =item *
 
-CPAN Testers Results
+CPAN Testers
 
-L<http://cpantesters.org/distro/D/Dist-Zilla-Plugin-ApocalypseTests.html>
+The CPAN Testers is a network of smokers who run automated tests on uploaded CPAN distributions.
+
+L<http://www.cpantesters.org/distro/D/Dist-Zilla-Plugin-ApocalypseTests>
 
 =item *
 
 CPAN Testers Matrix
 
+The CPAN Testers Matrix is a website that provides a visual overview of the test results for a distribution on various Perls/platforms.
+
 L<http://matrix.cpantesters.org/?dist=Dist-Zilla-Plugin-ApocalypseTests>
+
+=item *
+
+CPAN Testers Dependencies
+
+The CPAN Testers Dependencies is a website that shows a chart of the test results of all dependencies for a distribution.
+
+L<http://deps.cpantesters.org/?module=Dist::Zilla::Plugin::ApocalypseTests>
 
 =back
 
@@ -245,7 +314,7 @@ The code is open to the world, and available for you to hack on. Please feel fre
 with it, or whatever. If you want to contribute patches, please send me a diff or prod me to pull
 from your repository :)
 
-L<http://github.com/apocalypse/perl-dist-zilla-plugin-apocalypsetests>
+L<https://github.com/apocalypse/perl-dist-zilla-plugin-apocalypsetests>
 
   git clone git://github.com/apocalypse/perl-dist-zilla-plugin-apocalypsetests.git
 
@@ -255,15 +324,36 @@ Apocalypse <APOCAL@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Apocalypse.
+This software is copyright (c) 2014 by Apocalypse.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-The full text of the license can be found in the LICENSE file included with this distribution.
+The full text of the license can be found in the
+F<LICENSE> file included with this distribution.
+
+=head1 DISCLAIMER OF WARRANTY
+
+THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGES.
 
 =cut
-
 
 __DATA__
 ___[ t/apocalypse.t ]___
@@ -275,9 +365,6 @@ eval "use Test::Apocalypse 1.000";
 if ( $@ ) {
 	plan skip_all => 'Test::Apocalypse required for validating the distribution';
 } else {
-	# hack for Kwalitee ( zany require format so DZP::AutoPrereq will not pick it up )
-	require 'Test/NoWarnings.pm'; require 'Test/Pod.pm'; require 'Test/Pod/Coverage.pm';
-
 	is_apocalypse_here( {
 		ALLOWDENY
 	} );
